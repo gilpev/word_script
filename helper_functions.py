@@ -25,6 +25,16 @@ def get_relevant_words(csv_file_path, letters = []):
             relevant_words.append(row[0])
     return relevant_words
 
+def get_words_by_lenght(csv_file_path, lenght):
+    reader = read_csv(csv_file_path)
+    words_within_lenght = []
+    for row in reader:
+        if len(row[0]) != int(lenght):
+            continue
+        else:
+            words_within_lenght.append(row[0])
+    return words_within_lenght
+
 def check_letters(row, letters):
     letters_list = list(letters)
     for letter in list(row):
